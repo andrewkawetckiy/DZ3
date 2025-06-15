@@ -1,52 +1,42 @@
 <!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <title>Звіт про виконані завдання</title>
-  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-</head>
-<body>
-  <h1>Звіт про виконані завдання</h1>
-  <h2>Студента групи Ім-24</h2>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AR-сцена з маркерами</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Підключаємо бібліотеки -->
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;">
+      
+      <!-- 🎯 Маркер 1: Hiro -->
+      <a-marker preset="hiro">
+        <a-entity rotation="-90 0 0" scale="0.2 0.2 0.2" position="0 0.5 0">
+          <a-torus
+            color="#FFD700"
+            radius="1.2"
+            radius-tubular="0.1"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
+          </a-torus>
+        </a-entity>
+      </a-marker>
 
-  <a-scene>
-    <!-- Фон -->
-    <a-sky src="assets/textures/sky.jpg"></a-sky>
+      <!-- 🎯 Маркер 2: Kanji -->
+      <a-marker preset="kanji">
+        <a-entity position="0 0.5 0" rotation="-90 0 0" scale="0.3 0.3 0.3">
+          <a-box
+            color="#4CAF50"
+            animation="property: scale; dir: alternate; dur: 1500; loop: true; to: 0.5 0.5 0.5">
+          </a-box>
+        </a-entity>
+      </a-marker>
 
-    <!-- Освітлення -->
-    <a-light type="ambient" color="#BBB"></a-light>
-    <a-light type="directional" position="0 1 1" intensity="0.8" color="#FFF"></a-light>
-
-    <!-- Тори -->
-    <a-torus position="0 2.262 -4.851" color="#FFD700" radius="1.2" radius-tubular="0.090" rotation="29.691 0 0" scale="1.884 1.228 1.100"></a-torus>
-    <a-torus position="0 1.982 -5" color="#FFA700" radius="1.2" radius-tubular="0.100" rotation="-38.104 0 0"></a-torus>
-    <a-torus position="-1.119 1.041 -5" color="#FFA500" radius="1.2" radius-tubular="0.150" rotation="55.609 90 90"></a-torus>
-    <a-torus position="1.262 1.666 -5" color="#008000" radius="1.2" radius-tubular="0.25" rotation="-59 90 0"></a-torus>
-
-    <!-- Платформа -->
-    <a-box position="0 -1.5 -5" width="7" height="0.2" depth="7" scale="1.664 1 1.543" src="assets/textures/wood.jpg"></a-box>
-
-    <!-- Стрижні -->
-    <a-cylinder position="-0.5 -0.253 -5" radius="0.05" height="2" color="#0000FF" scale="1 1.2 1"></a-cylinder>
-    <a-cylinder position="0  -0.261 -5" radius="0.05" height="2" color="#FFFF00" scale="1 1.3 1"></a-cylinder>
-    <a-cylinder position="0.5 -0.276 -5" radius="0.05" height="2" color="#FF00FF" scale="1 1.2 1"></a-cylinder>
-
-    <!-- Звичайний текст -->
-    <a-text value="Welcome to browser's VR!" position="-0.7 1.2 -1.7" color="black" align="left" width="4"></a-text>
-
-    <!-- Текст з кастомним шрифтом -->
-    <a-text value="Кавецький Андрій, Ім-24"
-        position="-0.5 2.2 -2.2"
-        scale="1 1 1"
-        rotation="0 0 0"
-        font="assets/fonts/Roboto-Italic-msdf/Roboto-Italic-msdf.json"
-        width="5"
-        color="#FF5349"
-        negate="false">
-    </a-text>
-
-    <a-entity obj-model="obj: url(assets//models/BatlaRobot/tinker.obj); mtl: url(assets/models/BatlaRobot/obj.mtl)" position="2.3 -1.425 -3.5" scale="0.1 0.1 0.1" rotation="-90 60 0"></a-entity>
-
-  </a-scene>
-</body>
+      <!-- 📷 Камера -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
