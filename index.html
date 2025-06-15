@@ -24,7 +24,7 @@
     <a-torus position="1.262 1.666 -5" color="#008000" radius="1.2" radius-tubular="0.25" rotation="-59 90 0"></a-torus>
 
     <!-- Платформа -->
-    <a-box position="0 -1.5 -5" width="7" height="0.2" depth="7" color="#FF00FF"></a-box>
+    <a-box position="0 -1.5 -5" width="7" height="0.2" depth="7" scale="1.664 1 1.543" src="assets/textures/wood.jpg"></a-box>
 
     <!-- Стрижні -->
     <a-cylinder position="-0.5 -0.253 -5" radius="0.05" height="2" color="#0000FF" scale="1 1.2 1"></a-cylinder>
@@ -36,12 +36,16 @@
 
     <!-- Текст з кастомним шрифтом -->
     <a-text value="Кавецький Андрій, Ім-24"
-        position="-0.7 2 -1.7"
+        position="-0.5 2.2 -2.2"
+        scale="1 1 1"
+        rotation="0 0 0"
         font="assets/fonts/Roboto-Italic-msdf/Roboto-Italic-msdf.json"
         width="5"
-        color="#33C3F0"
+        color="#FF5349"
         negate="false">
     </a-text>
+
+    <a-entity obj-model="obj: url(assets//models/BatlaRobot/tinker.obj); mtl: url(assets/models/BatlaRobot/obj.mtl)" position="2.3 -1.425 -3.5" scale="0.1 0.1 0.1" rotation="-90 60 0"></a-entity>
 
   </a-scene>
 </body>
